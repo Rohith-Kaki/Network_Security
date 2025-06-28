@@ -40,7 +40,7 @@ class NetworkDataExtract:
         except Exception as e:
             raise CustomException(e, sys)
 if __name__ == "__main__":
-    file_path = "Network_Data\Website Phishing.csv"
+    file_path = "Network_Data\Website_Phishing.csv"
     extract = NetworkDataExtract()
     records = extract.csv_to_json(file_path)
     print(records)
