@@ -1,6 +1,7 @@
 import sys
 from Network_Security.Components.data_ingestion import DataIngestion
-from Network_Security.Entity.config_entity import DataIngestionConfig, TrainingPipelineConfig
+from Network_Security.Components.data_validation import DataValidation
+from Network_Security.Entity.config_entity import DataIngestionConfig, TrainingPipelineConfig, DataValidationConfig
 from Network_Security.Exception.CustomException import CustomException
 from Network_Security.Logging.logger import logging
 
@@ -12,9 +13,16 @@ if __name__ == "__main__":
         data_ingestion_config = DataIngestionConfig(training_pipeline_config)
         logging.info("Initiating data ingestion")
         data_ingestion_obj = DataIngestion(data_ingestion_config)
-        file_paths = data_ingestion_obj.initiate_data_ingestion()
+        data_ingestion_artifact = data_ingestion_obj.initiate_data_ingestion()
         logging.info("data ingestion completed")
-        print(file_paths.test_file_path, file_paths.train_file_path)
-        print(file_paths)
+        print(data_ingestion_artifact.test_file_path, data_ingestion_artifact.train_file_path)
+        print(data_ingestion_artifact)
+
+        logging.info("Started data validation")
+        data_validation_config = DataValidationConfig(training_pipeline_config)
+        data_validation_obj = DataValidation(data_ingestion_artifact, data_validation_config)
+        data_validation_artifact = data_validation_obj.initiate_data_validation()
+        print(data_validation_artifact)
+        logging.info("Data validation completed")
     except Exception as e:
         raise CustomException(e, sys)

@@ -1,0 +1,23 @@
+columns:
+  -SFH: int64
+  -popUpWidnow: int64
+  -SSLfinal_State: int64
+  -Request_URL: int64
+  -URL_of_Anchor: int64
+  -web_traffic: int64
+  -URL_Length: int64
+  -age_of_domain: int64
+  -having_IP_Address: int64
+  -Result: int64
+
+numerical_columns:
+  -SFH
+  -popUpWidnow
+  -SSLfinal_State
+  -Request_URL
+  -URL_of_Anchor
+  -web_traffic
+  -URL_Length
+  -age_of_domain
+  -having_IP_Address
+  -Result

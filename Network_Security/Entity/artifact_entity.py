@@ -12,3 +12,13 @@ class DataIngestionArtifact:
 
 # It’s used to create lightweight "classes" that mainly store "data".
 # these both mean the same @dataclass is a decorator that helps you to skip this code.
+
+
+@dataclass
+class DataValidationArtifact:
+    validation_status: bool
+    valid_train_file_path: str
+    valid_test_file_path: str
+    invalid_train_file_path: str
+    invalid_test_file_path: str
+    drift_report_file_path: str
