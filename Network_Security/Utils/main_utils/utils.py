@@ -23,3 +23,22 @@ def write_yaml_file(file_path: str, content: object, replace:bool = False) -> No
             yaml.dump(content, file)
     except Exception as e:
         raise CustomException(e, sys)
+    
+def save_numpy_array(file_path: str, array: np.array) -> None:
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        with open(file_path, "wb") as file_obj:
+            np.save(file_obj, array)
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def save_object(file_path: str, obj: object) -> None:
+    try:
+        logging.info("Saving the Object | running from utils.py")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "wb") as file_obj:
+            pickle.dump(obj, file_obj)
+        logging.info("Successfully saved the Object | Exiting save_object form utils.py")
+    except Exception as e:
+        raise CustomException(e, sys)
