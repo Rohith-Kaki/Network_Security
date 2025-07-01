@@ -11,6 +11,8 @@ FILE_NAME = "Website_Phishing.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 SCHEMA_FILE_PATH = os.path.join("data_schema", "schema.ymal")
+SAVED_MODEL_DIR = os.path.join("saved_models")
+MODEL_FILE_NAME = "model.pkl"
 
 
 """ DATA INGESTION CONSTANTS """
@@ -39,3 +41,10 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {
     "n_neighbors":3,
     "weights":"uniform"
 }
+
+""" MODEL TRAINER CONSTANTS """
+MODEL_TRAINER_DIR_NAME: str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_FILE_NAME: str = "model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
+MODEL_TRAINET_OVER_FITTING_UNDER_FITTING_THRESHOLD: float = 0.05
